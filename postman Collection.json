@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14",
+		"name": "Laravel API Demo",
+		"description": "This collection facilitates testing of authentication and CRUD operations for a Laravel project.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/items",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items"
+					]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"New Item\",\n    \"description\": \"This is a description of the new item.\",\n    \"quantity\": 10,\n    \"price\": 99.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/items",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/items/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items",
+						"1"
+					]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated Item\",\n    \"description\": \"Updated description of the item.\",\n    \"quantity\": 15,\n    \"price\": 149.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/items/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "url",
+			"key": "url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"id": "token",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
